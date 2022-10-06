@@ -1,27 +1,13 @@
-import {useState} from 'react';
-import { StyleSheet, Text,TouchableOpacity, View, Button, TextInput,Image, ScrollView} from "react-native";
-import SignIn from "./componants/SignIn";
+import { Provider } from 'react-redux';
+import configureStore from './redux_store/store';
+import Index from './components/Index';
 
+const store = configureStore();
 
 export default function App() {
-
-  return (
-    <View style={styles.container}>
-      
-      <SignIn />
-  
-   </View>
-
-  );
+    return (
+        <Provider store={store}>
+            <Index/>
+        </Provider>
+    );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-    margin:5
-  }
-  
-});
